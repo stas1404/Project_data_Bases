@@ -10,7 +10,7 @@ create table project.sights (
 
 alter table project.sights
 add check(type = 'museum' or type = 'sculpture' 
-or type = 'cathedral' or type = 'reserve')
+or type = 'cathedral' or type = 'reserve' or type = 'tower')
 
 drop table if exists project.location cascade
 
@@ -26,7 +26,7 @@ drop table if exists project.Geographical_coordinates
 create table project.Geographical_coordinates (
   id serial primary key,
   latitude double precision not null,
-  city double precision not null,
+  longtitude double precision not null,
   constraint fk foreign key(id) references project.sights(id)
 )
 
@@ -71,3 +71,4 @@ create table project.chronology (
   add_to_UNESCO date,
   constraint fk foreign key(id) references project.sights(id)
 )
+
